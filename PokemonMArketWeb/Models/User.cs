@@ -27,7 +27,7 @@ namespace PokemonsMarketWeb.Models
         [Required(ErrorMessage = "Should be username")]
         public string  surname { get; set; }
 
-        [RegularExpression(@"^0?[0-9]{10}$")]
+        [RegularExpression(@"^0?[0-9]{10}$", ErrorMessage = "is not valid phone number")]
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Should be phone")]
         public string phone { get; set; }
@@ -38,6 +38,7 @@ namespace PokemonsMarketWeb.Models
         public string password { get; set; }
 
 
+        public string role { get; set; }
 
     }
 }

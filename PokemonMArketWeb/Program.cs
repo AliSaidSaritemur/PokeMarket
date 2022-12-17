@@ -6,12 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
-    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-    options.LoginPath = new PathString("/Account/SingIn");
-    options.LogoutPath = new PathString("/Account/LogOut");
-
-    }); ;
+        options.Cookie.Name = "NetCoreMvcAuth";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+        options.LoginPath = new PathString("/Account/SingIn");
+        options.LogoutPath = new PathString("/Account/LogOut");
+    });
 
 builder.Services.AddControllersWithViews();
 

@@ -5,25 +5,25 @@
 namespace PokemonsMarketWeb.Migrations
 {
     /// <inheritdoc />
-    public partial class addmigration : Migration
+    public partial class addedroles : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "price",
-                table: "Pokemons",
-                type: "int",
+            migrationBuilder.AddColumn<string>(
+                name: "role",
+                table: "Users",
+                type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: 300);
+                defaultValue: "user");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "price",
-                table: "Pokemons");
+                name: "role",
+                table: "Users");
         }
     }
 }

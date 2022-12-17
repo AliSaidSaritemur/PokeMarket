@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sLRLOXsYnjRFUhrjrhi941J3fhoItqysmZVpyf19UIQ=",
+  "Hash": "Vm3h5TZWfNLCf2SjW/TY5JgiryVQCrhx2N6lL2jikzA=",
   "Source": "PokemonsMarketWeb",
   "BasePath": "_content/PokemonsMarketWeb",
   "Mode": "Default",
@@ -102,6 +102,40 @@
       "OriginalItemSpec": "wwwroot\\Image\\Bulbasaur.jpg"
     },
     {
+      "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\Image\\Charmander.jpg",
+      "SourceId": "PokemonsMarketWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\",
+      "BasePath": "_content/PokemonsMarketWeb",
+      "RelativePath": "Image/Charmander.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\Charmander.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\Image\\Jigglypuff.jpg",
+      "SourceId": "PokemonsMarketWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\",
+      "BasePath": "_content/PokemonsMarketWeb",
+      "RelativePath": "Image/Jigglypuff.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\Jigglypuff.jpg"
+    },
+    {
       "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\Image\\Pikachu.jpg",
       "SourceId": "PokemonsMarketWeb",
       "SourceType": "Discovered",
@@ -117,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\Pikachu.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\Image\\Squirtle.jpg",
+      "SourceId": "PokemonsMarketWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\",
+      "BasePath": "_content/PokemonsMarketWeb",
+      "RelativePath": "Image/Squirtle.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\Squirtle.jpg"
     },
     {
       "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\js\\site.js",

@@ -1,4 +1,7 @@
-﻿@using PokemonsMarketWeb.Models
+﻿@{
+    Layout = "_Layout";
+}
+@using PokemonsMarketWeb.Models
 
 @model List<Pokemon>
 @{
@@ -14,15 +17,14 @@
             box-sizing: border-box;
         }
 
-        /* Create three equal columns that floats next to each other */
         .column {
             float: left;
             width: 33.33%;
             padding: 10px;
-            height: 300px; /* Should be removed. Only for demonstration */
+            height: 300px; 
         }
 
-        /* Clear floats after the columns */
+      
         .row:after {
             content: "";
             display: table;
@@ -72,6 +74,7 @@
                 <br>
                 <p class="center">  @Model[i].name</p>
                 <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i].id">Sell</a></p>
+                <p class="center">  @Model[i].price</p>
             </div>
             @if (i + 1 < Model.Count)
             {
@@ -81,6 +84,7 @@
                     <br>
                     <p class="center"> @Model[i+1].name</p>
                     <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i+1].id">Sell</a></p>
+                    <p class="center">  @Model[i+1].price</p>
 
                 </div>
             }
@@ -92,10 +96,11 @@
                     <br>
                     <p class="center">  @Model[i+2].name</p>
                     <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a></p>
+                    <p class="center">  @Model[i+2].price</p>
                 </div>
             }
         </div>
-
+              <br />
     }
 
 </body>

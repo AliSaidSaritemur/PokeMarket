@@ -80,6 +80,12 @@ namespace PokemonsMarketWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("role")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("user");
+
                     b.Property<string>("surname")
                         .IsRequired()
                         .HasMaxLength(35)
@@ -87,13 +93,13 @@ namespace PokemonsMarketWeb.Migrations
 
                     b.Property<string>("userName")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(35)
-                        .HasColumnType("nvarchar(35)")
-                        .HasDefaultValue("5000");
+                        .HasColumnType("nvarchar(35)");
 
                     b.Property<int>("wallet")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(5000);
 
                     b.HasKey("id");
 

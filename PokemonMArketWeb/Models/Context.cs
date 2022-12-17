@@ -21,9 +21,11 @@ namespace PokemonsMarketWeb.Models
             modelBuilder.Entity<User>().HasIndex(a => a.mail).IsUnique(true);
             modelBuilder.Entity<User>().HasIndex(a => a.phone).IsUnique(true);
             modelBuilder.Entity<User>().HasIndex(a => a.userName).IsUnique(true);
-            modelBuilder.Entity<User>().Property(a => a.userName).HasDefaultValue(5000);
+            modelBuilder.Entity<User>().Property(a => a.wallet).HasDefaultValue(5000);
+            modelBuilder.Entity<User>().Property(a => a.role).HasDefaultValue("user");
             modelBuilder.Entity<Pokemon>().Property(a => a.UserId).HasDefaultValue(-1);
             modelBuilder.Entity<Pokemon>().Property(a => a.price).HasDefaultValue(300);
+
         }
     }
 

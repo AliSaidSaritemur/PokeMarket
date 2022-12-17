@@ -11,8 +11,8 @@ using PokemonsMarketWeb.Models;
 namespace PokemonsMarketWeb.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221213194646_First")]
-    partial class First
+    [Migration("20221217103522_addSomeValid")]
+    partial class addSomeValid
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,40 @@ namespace PokemonsMarketWeb.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("PokemonsMarketWeb.Models.Pokemon", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(-1);
+
+                    b.Property<int>("age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
+
+                    b.Property<int>("power")
+                        .HasColumnType("int");
+
+                    b.Property<int>("price")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(300);
+
+                    b.HasKey("id");
+
+                    b.ToTable("Pokemons");
+                });
 
             modelBuilder.Entity("PokemonsMarketWeb.Models.User", b =>
                 {
@@ -56,13 +90,13 @@ namespace PokemonsMarketWeb.Migrations
 
                     b.Property<string>("userName")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(35)
-                        .HasColumnType("nvarchar(35)")
-                        .HasDefaultValue("5000");
+                        .HasColumnType("nvarchar(35)");
 
                     b.Property<int>("wallet")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(5000);
 
                     b.HasKey("id");
 

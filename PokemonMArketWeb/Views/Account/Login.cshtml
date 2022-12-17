@@ -1,4 +1,7 @@
-﻿@using PokemonsMarketWeb.Models
+﻿@{
+    Layout = "_Layout";
+}
+@using PokemonsMarketWeb.Models
 
 @model LoginUser
 
@@ -16,13 +19,12 @@
 
     <button type="submit"  class="btn btn-primary">Login</button>
     <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
+     <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Create account</a>
   </div>
 </form>
 

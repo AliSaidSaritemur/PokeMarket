@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using PokemonMArketWeb.Models;
 using PokemonsMarketWeb.Models;
@@ -7,6 +8,8 @@ using System.Globalization;
 
 namespace PokemonMArketWeb.Controllers
 {
+
+    [Authorize(Roles ="admin")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,13 +21,14 @@ namespace PokemonMArketWeb.Controllers
 
         public IActionResult Market()
         {
+            if (Request.Cookies["id"]==null) { 
             var userId = Request.Cookies["id"];
             User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
-
+            }
 
             var query = (from k in c.Pokemons
                          where  -1 == k.UserId
-                         select new Pokemon() { id=k.id, age=k.age,name=k.name,power=k.power,UserId=k.UserId}).ToList();
+                         select new Pokemon() { id=k.id, age=k.age,name=k.name,power=k.power,UserId=k.UserId, price = k.price }).ToList();
 
          
             return View(query);
@@ -38,7 +42,7 @@ namespace PokemonMArketWeb.Controllers
 
             var query = (from k in c.Pokemons
                          where user.id == k.UserId
-                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId }).ToList();
+                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId,price=k.price }).ToList();
 
             ViewBag.user = user;
             return View(query);
@@ -53,13 +57,19 @@ namespace PokemonMArketWeb.Controllers
 
             var userId = Request.Cookies["id"];
             User upDateUser = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
-
+            if (upDateUser.wallet-updatePokemon.price>=0) { 
             updatePokemon.UserId = upDateUser.id;
             
             upDateUser.wallet = upDateUser.wallet - updatePokemon.price;
+
+                if(updatePokemon.price>100)
             updatePokemon.price = updatePokemon.price - 50;
+
             c.SaveChanges();
             return RedirectToAction("Profil", "Home");
+            }
+
+            return RedirectToAction("Market");
         }
 
         [HttpGet]
@@ -74,7 +84,7 @@ namespace PokemonMArketWeb.Controllers
             updatePokemon.UserId = -1;
 
             upDateUser.wallet = upDateUser.wallet + updatePokemon.price;
-            updatePokemon.price = updatePokemon.price - 20;
+            updatePokemon.price = updatePokemon.price +35;
             c.SaveChanges();
             return RedirectToAction("Profil", "Home");
         }

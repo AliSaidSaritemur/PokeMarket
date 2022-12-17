@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "_Layout";
+}
+@using PokemonsMarketWeb.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model User
+<h3>Create User</h3>
+
+<form asp-action="Create" asp-controller="Account" method="post">
+    <div class="form-group">
+        <label>
+             Name: <span class="text-danger">*</span>
+            <span asp-validation-for="@Model.name" class="text-danger"></span>
+        </label>
+        <input asp-for="@Model.name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>
+            Surname:
+            <span class="text-danger">*</span>
+            <span asp-validation-for="@Model.surname" class="text-danger"></span>
+
+        </label>
+        <input asp-for="@Model.surname" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>
+            Username:
+
+            <span class="text-danger">*</span>
+            <span asp-validation-for="@Model.userName" class="text-danger"></span>
+        </label>
+        <input asp-for="@Model.userName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>
+            Email:
+
+            <span class="text-danger">*</span>
+            <span asp-validation-for="@Model.mail" class="text-danger"></span>
+        </label>
+        <input asp-for="@Model.mail" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>
+            Phone:
+
+            <span class="text-danger">*</span>
+            <span asp-validation-for="@Model.phone" class="text-danger"></span>
+        </label>
+        <input asp-for="@Model.phone" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>
+            Password:
+
+            <span class="text-danger">*</span>
+            <span asp-validation-for="@Model.password" class="text-danger"></span>
+        </label>
+        <input asp-for="@Model.password" class="form-control" />
+    </div>
+
+
+
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger">
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="\node_modules\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js"></script>
+}    

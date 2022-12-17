@@ -1,0 +1,107 @@
+﻿@using PokemonsMarketWeb.Models
+
+@model List<Pokemon>
+@{
+    string path = Directory.GetCurrentDirectory() + "wwwroot/";
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .center {
+            border: 5px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="table table-hover table-bordered">
+        <thead>
+
+            <tr>
+                <th>Frist Name </th>
+                <th>Last Name </th>
+                <th> Wallet </th>
+            </tr>
+
+        </thead>
+        <tbody>
+           
+                <tr>
+                    <td>@ViewBag.user.name</td>
+                <td>@ViewBag.user.surname</td>
+                <td>@ViewBag.user.wallet</td>
+
+                </tr>
+
+        </tbody>
+    </table>
+
+
+    @for (int i = 0; i < Model.Count; i += 3)
+    {
+
+        <div class="row">
+
+
+            <div class="column">
+                <p class="center"> <img src="/Image/@(Model[i].name).jpg" width=40% height=40%></p>
+                <br>
+                <p class="center">  @Model[i].name</p>
+                <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i].id">Sell</a></p>
+            </div>
+            @if (i + 1 < Model.Count)
+            {
+                <div class="column">
+
+                    <p class="center"> <img src="/Image/@(Model[i+1].name).jpg" width=40% height=40%></p>
+                    <br>
+                    <p class="center"> @Model[i+1].name</p>
+                    <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i+1].id">Sell</a></p>
+
+                </div>
+            }
+            @if (i + 2 < Model.Count)
+            {
+
+                <div class="column">
+                    <p class="center"> <img src="/Image/@(Model[i+2].name).jpg" width=40% height=40%></p>
+                    <br>
+                    <p class="center">  @Model[i+2].name</p>
+                    <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a></p>
+                </div>
+            }
+        </div>
+
+    }
+
+</body>
+</html>
+
+
+
+
+

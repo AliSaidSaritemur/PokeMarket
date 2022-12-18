@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using System.Security.Claims;
 using System.Net;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
+using System.Data;
 
 namespace PokemonsMarketWeb.Controllers
 {
@@ -18,7 +19,14 @@ namespace PokemonsMarketWeb.Controllers
         public IActionResult Login()
         {
             if (Request.Cookies["id"] != null)
+            {
+                User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(Request.Cookies["id"]));
+                if (user.role=="admin")
+                    return RedirectToAction("Market", "AdminHome");
+
                 return RedirectToAction("Market", "Home");
+            }
+               
 
             LoginUser u = new LoginUser();    
             return View(u);
@@ -31,8 +39,7 @@ namespace PokemonsMarketWeb.Controllers
             var user = c.Users.FirstOrDefault(x => x.mail == u.mail && x.password == u.password);
 
      
-         
-
+   
             if (user!=null)
             {
 
@@ -45,14 +52,22 @@ namespace PokemonsMarketWeb.Controllers
                 var authProperties = new AuthenticationProperties();
                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentty), authProperties);
                 Response.Cookies.Append("id",user.id.ToString());  
-                return RedirectToAction("Market", "Home");
+                if(user.role=="admin")
+                return RedirectToAction("Market", "AdminHome");
+                else
+                {
+                    return RedirectToAction("Market", "Home");
+                }
             }
             return View();
         }
 
         public IActionResult LogOut()
         {
-            Response.Cookies.Delete("id");
+            foreach (var cookie in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookie);
+            }
             return  RedirectToAction("Login", "Account");
         }
 

@@ -1,4 +1,5 @@
 ﻿@{
+
     Layout = "_Layout";
 }
 @using PokemonsMarketWeb.Models
@@ -12,6 +13,8 @@
 
 <html>
 <head>
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         * {
@@ -19,11 +22,16 @@
         }
 
 
+}
+.bord {
+  border:solid 5px hsla(0, 95%, 35%, 1);
+}
+
         .column {
             float: left;
             width: 33.33%;
             padding: 10px;
-            height: 300px; 
+            height: 335px; 
         }
 
       
@@ -33,7 +41,7 @@
             clear: both;
         }
         .center {
-  border: 5px ;
+  border: 1px ;
   display: flex;
   justify-content: center;
 }
@@ -44,35 +52,39 @@
     @for (int i = 0; i < Model.Count; i += 3)
     {
 
-        <div class="row">
+        <div class="row ">
 
 
-            <div class="column">
-                   <p class="center"> <img src="/Image/@(Model[i].name).jpg" width=40% height=40%></p>
-                        <br>
-                <p class="center">  @Model[i].name</p>
-                    <p class="center"><a asp-action="Buy" asp-route-fileName="@Model[i].id">Buy</a></p>
-                    <p class="center">  @Model[i].price</p>
+            <div class="column  border border-info" >
+                   <p class="d-flex justify-content-center" > <img src="/Image/@(Model[i].name).jpg" width=40% height=40%></p>
+              
+                <p class="d-flex justify-content-center">  @Model[i].name</p>
+               <p class="d-flex justify-content-center">  <a  asp-action="Detail" asp-route-fileName="@Model[i].id">Detail</a></p>
+                  <a class="d-flex justify-content-center" asp-action="Buy" asp-route-fileName="@Model[i].id">Buy</a>
+                    <p class="d-flex justify-content-center">  @Model[i].price</p>
+
             </div>
             @if (i + 1 < Model.Count)
             {
-                <div class="column" >
+                <div class="column border border-info" >
 
             <p class="center"> <img src="/Image/@(Model[i+1].name).jpg" width=40% height=40%></p>
-                        <br>
+
                        <p class="center"> @Model[i+1].name</p>
-                        <p class="center"><a asp-action="Buy" asp-route-fileName="@Model[i+1].id">Buy</a></p>
+                        <p class="center"><a asp-action="Detail" asp-route-fileName="@Model[i+1].id">Detail</a></p>
+                       <a class="center" asp-action="Buy" asp-route-fileName="@Model[i+1].id">Buy</a>
                         <p class="center">  @Model[i+1].price</p>
                     </div>
             }
             @if (i + 2 < Model.Count)
             {
 
-                <div class="column">
+                <div class="column border border-info">
                     <p class="center"> <img src="/Image/@(Model[i+2].name).jpg" width=40% height=40%></p>
-                    <br>
+                  
                     <p class="center">  @Model[i+2].name</p>
-                        <p class="center"><a asp-action="Buy" asp-route-fileName="@Model[i+2].id">Buy</a></p>
+                       <p class="center"><a asp-action="Detail" asp-route-fileName="@Model[i+2].id">Detail</a></p>
+                     <a  class="center" asp-action="Buy" asp-route-fileName="@Model[i+2].id">Buy</a>
                         <p class="center">  @Model[i+2].price</p>
                 </div>
             }

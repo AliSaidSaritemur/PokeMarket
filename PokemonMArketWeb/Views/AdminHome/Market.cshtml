@@ -1,0 +1,89 @@
+﻿@{
+
+    Layout = "adminLayout";
+}
+@using PokemonsMarketWeb.Models
+
+@model List<Pokemon>
+@{
+    string path = Directory.GetCurrentDirectory()+ "wwwroot/";
+    ViewData["PokeId"] = "0";
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 300px; 
+        }
+
+      
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .center {
+  border: 5px ;
+  display: flex;
+  justify-content: center;
+}
+    </style>
+</head>
+<body>
+    <form asp-action="Buy" method="post">
+    @for (int i = 0; i < Model.Count; i += 3)
+    {
+
+        <div class="row">
+
+
+                <div class="column border border-info">
+                   <p class="center"> <img src="/Image/@(Model[i].name).jpg" width=40% height=40%></p>
+                       
+                <p class="center">  @Model[i].name</p>
+                    <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i].id">Remove</a></p>
+                    <p class="center">  @Model[i].price</p>
+            </div>
+            @if (i + 1 < Model.Count)
+            {
+                    <div class="column border border-info">
+
+            <p class="center"> <img src="/Image/@(Model[i+1].name).jpg" width=40% height=40%></p>
+                        <br>
+                       <p class="center"> @Model[i+1].name</p>
+                        <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+1].id">Remove</a></p>
+                        <p class="center">  @Model[i+1].price</p>
+                    </div>
+            }
+            @if (i + 2 < Model.Count)
+            {
+
+                    <div class="column border border-info">
+                    <p class="center"> <img src="/Image/@(Model[i+2].name).jpg" width=40% height=40%></p>    
+                    <p class="center">  @Model[i+2].name</p>
+                        <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+2].id">Remove</a></p>
+                        <p class="center">  @Model[i+2].price</p>
+                </div>
+            }
+        </div>
+        <br />
+    }
+   </form>
+</body>
+</html>
+        
+
+         
+
+

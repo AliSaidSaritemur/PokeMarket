@@ -9,7 +9,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Cookie.Name = "NetCoreMvcAuth";
         options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
         options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-        options.LoginPath = new PathString("/Account/SingIn");
+        options.LoginPath = new PathString("/Account/Login");
         options.LogoutPath = new PathString("/Account/LogOut");
     });
 

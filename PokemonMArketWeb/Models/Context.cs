@@ -7,7 +7,7 @@ namespace PokemonsMarketWeb.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<Pokemon> Pokemons { get; set; }
-
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

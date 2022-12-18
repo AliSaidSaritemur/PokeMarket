@@ -9,7 +9,7 @@ using System.Globalization;
 namespace PokemonMArketWeb.Controllers
 {
 
-    [Authorize(Roles ="admin")]
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -89,8 +89,36 @@ namespace PokemonMArketWeb.Controllers
             return RedirectToAction("Profil", "Home");
         }
 
+        [HttpGet]
+        public IActionResult Detail(string filename)
+        {
+            string asdasd = filename;
+            Pokemon detailPokemon = c.Pokemons.FirstOrDefault(I => I.id == Int32.Parse(filename));
+
+            var query = (from k in c.Comments
+                         where detailPokemon.id == k.PokeId
+                         select new Comment() { id = k.id, text = k.text, PokeId = k.PokeId, UserId = k.UserId,UserName =k.UserName}).ToList();
+
+            var userId = Request.Cookies["id"];
+            User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
+            ViewBag.comments=query;
+            ViewBag.pokemon = detailPokemon;
+            ViewBag.user = user;
 
 
+            return View(new Comment());
+        }
+
+        [HttpPost]
+        public IActionResult AddCommet(Comment comment)
+        {
+           
+           
+            c.Comments.Add(comment);
+                c.SaveChanges();
+                return RedirectToAction("Detail", new { filename = comment.PokeId });
+
+        }
         public IActionResult Privacy()
         {
             return View();
@@ -101,5 +129,9 @@ namespace PokemonMArketWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+
+
     }
 }

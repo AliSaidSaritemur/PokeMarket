@@ -42,8 +42,9 @@
 </head>
 <body>
 
-    <h2 class="center">Add New Pokemon</h2>
+    <h2 class="center" key=19>Add New Pokemon</h2>
         <a class="center" asp-action="CreatePokemon"> <img src="/Image/PokeCard.jpg" width=20% height=20%></a>
+        <br>
 
     <form asp-action="Buy" method="post">
     @for (int i = 0; i < Model.Count; i += 3)
@@ -55,10 +56,10 @@
                 <div class="column border border-info">
                     <a class="d-flex justify-content-center" asp-action="Detail" asp-route-fileName="@Model[i].id"> <img src="/Image/@(Model[i].species).jpg" width=40% height=40%></a>
                        
-                <p class="center">  @Model[i].name</p>
-                    <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i].id">Remove</a></p>
-                    <p class="center"><a asp-action="UpdatePokemon" asp-route-fileName="@Model[i].id">Update</a></p>
-                    <p class="center">  @Model[i].price</p>
+                <b class="center">  @Model[i].name</b>
+                    <p class="center bg-success text-white rounded">  @Model[i].price ₺</p>
+                    <p class="center"><a key=17 class ="btn btn-danger" asp-action="Remove" asp-route-fileName="@Model[i].id">Remove</a>&nbsp &nbsp <a key=18 class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@Model[i].id">Update</a></p>
+                 
             </div>
             @if (i + 1 < Model.Count)
             {
@@ -66,21 +67,23 @@
 
                         <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+1].id"><img src="/Image/@(Model[i+1].species).jpg" width=40% height=40%></a>
                       
-                       <p class="center"> @Model[i+1].name</p>
-                        <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+1].id">Remove</a></p>
-                        <p class="center"><a asp-action="UpdatePokemon" asp-route-fileName="@Model[i+1].id">Update</a></p>
-                        <p class="center">  @Model[i+1].price</p>
+                       <b class="center"> @Model[i+1].name</b>
+                        <p class="center bg-success text-white rounded">  @Model[i+1].price ₺</p>
+                        <p class="center"><a key=17 class="btn btn-danger" asp-action="Remove" asp-route-fileName="@Model[i+1].id">Remove</a>&nbsp &nbsp <a key=18 class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@Model[i+1].id">Update</a></p>
+
+                     
                     </div>
             }
             @if (i + 2 < Model.Count)
             {
 
                     <div class="column border border-info">
-                        <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
-                    <p class="center">  @Model[i+2].name</p>
-                        <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+2].id">Remove</a></p>
-                                            <p class="center"><a asp-action="UpdatePokemon" asp-route-fileName="@Model[i+2].id">Update</a></p>
-                        <p class="center">  @Model[i+2].price</p>
+                        <a  class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
+                    <b class="center">  @Model[i+2].name</b>
+                        <p class="center bg-success text-white rounded">  @Model[i+2].price ₺</p>
+                        <p class="center"><a key=17 class="btn btn-danger" asp-action="Remove" asp-route-fileName="@Model[i+2].id">Remove</a>&nbsp &nbsp <a key=18 class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@Model[i+2].id">Update</a></p>
+
+                      
                 </div>
             }
         </div>
@@ -90,7 +93,15 @@
 </body>
 </html>
         
+@section Scripts{
 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+}
          
 
 

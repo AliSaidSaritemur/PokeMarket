@@ -10,11 +10,7 @@ namespace PokemonsMarketWeb.Controllers
     public class AdminHomeController : Controller
     {
         Context c = new Context();
-
-
-
-       
-
+   
         [HttpGet]
         public IActionResult Profil()
         {

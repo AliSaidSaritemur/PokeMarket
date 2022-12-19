@@ -4,27 +4,45 @@
 @using PokemonsMarketWeb.Models
 
 @model LoginUser
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<form  asp-action="Login" asp-controller="Account" method="post">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
+</head>
+<body>
+  
 
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username"  asp-for="@Model.mail" class="form-control">
+    <form asp-action="Login" asp-controller="Account" method="post">
 
-    <label for="psw"><b>Password</b></label>
-        <input type="text" placeholder="Enter Password" asp-for="@Model.password" class="form-control">
+        <div class="container">
+            <label for="uname" key=2><b>Username</b></label>
+            <input type="text" asp-for="@Model.mail" class="form-control">
 
-    <button type="submit"  class="btn btn-primary">Login</button>
-    <label>
-     <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+            <label for="psw" key=4><b>Password</b></label>
+            <input type="text" asp-for="@Model.password" class="form-control">
 
-  <div class="container" style="background-color:#f1f1f1">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Create account</a>
-  </div>
-</form>
+            <button type="submit" class="btn btn-primary" key=8>Login</button>
+
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create" key=9>Create account</a>
+        </div>
+    </form>
+</body>
+</html>
+
+
+@section Scripts{
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+}
+
 

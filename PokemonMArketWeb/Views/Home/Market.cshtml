@@ -58,9 +58,10 @@
             <div class="column  border border-info" >
                  <a class="d-flex justify-content-center" asp-action="Detail" asp-route-fileName="@Model[i].id"> <img src="/Image/@(Model[i].species).jpg" width=40% height=40%></a>
               
-                <p class="d-flex justify-content-center">  @Model[i].name</p>
-                  <a class="d-flex justify-content-center" asp-action="Buy" asp-route-fileName="@Model[i].id">Buy</a>
-                    <p class="d-flex justify-content-center">  @Model[i].price</p>
+                <b class="d-flex justify-content-center">  @Model[i].name</b>
+                    <p class="d-flex justify-content-center p-3 mb-2 bg-success text-white rounded ">  @Model[i].price ₺</p>
+                    <a key=10 style="text-decoration: none" class="d-flex rounded justify-content-center p-3 mb-2 bg-warning text-dark" asp-action="Buy" asp-route-fileName="@Model[i].id">Buy</a>
+                    
 
             </div>
             @if (i + 1 < Model.Count)
@@ -68,9 +69,10 @@
                 <div class="column border border-info" >
 
                         <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+1].id"><img src="/Image/@(Model[i+1].species).jpg" width=40% height=40%></a>
-                       <p class="center"> @Model[i+1].name</p>                 
-                       <a class="center" asp-action="Buy" asp-route-fileName="@Model[i+1].id">Buy</a>
-                        <p class="center">  @Model[i+1].price</p>
+                       <b class="center"> @Model[i+1].name</b>
+                        <p class="center p-3 mb-2 bg-success text-white rounded ">  @Model[i+1].price ₺</p>
+                        <a key=10  style="text-decoration: none" class="center rounded  p-3 mb-2 bg-warning text-dark" asp-action="Buy" asp-route-fileName="@Model[i+1].id">Buy</a>
+                        
                     </div>
             }
             @if (i + 2 < Model.Count)
@@ -78,9 +80,10 @@
 
                 <div class="column border border-info">
                         <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
-                        <p class="center">  @Model[i+2].name</p>   
-                     <a  class="center" asp-action="Buy" asp-route-fileName="@Model[i+2].id">Buy</a>
-                        <p class="center">  @Model[i+2].price</p>
+                        <b class="center">  @Model[i+2].name</b>
+                        <p class="center rounded p-3 mb-2 bg-success text-white">  @Model[i+2].price ₺</p>
+                        <a key=10  style="text-decoration: none" class="center rounded p-3 mb-2 bg-warning text-dark" asp-action="Buy" asp-route-fileName="@Model[i+2].id">Buy</a>
+                       
                 </div>
             }
         </div>
@@ -90,7 +93,15 @@
 </body>
 </html>
         
+@section Scripts{
 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+}
          
 
 

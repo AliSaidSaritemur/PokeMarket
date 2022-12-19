@@ -13,7 +13,7 @@
 
     <div class="form-group">
         <label>
-            Name: <span class="text-danger">*</span>
+            <p key=0>Name:</p>  <span class="text-danger">*</span>
             <span asp-validation-for="@Model.name" class="text-danger"></span>
         </label>
         <input asp-for="@Model.name" class="form-control" />
@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <label>
-            Surname:
+            <p key=1>Surname:</p>
             <span class="text-danger">*</span>
             <span asp-validation-for="@Model.surname" class="text-danger"></span>
 
@@ -31,7 +31,7 @@
 
     <div class="form-group">
         <label>
-            Username:
+            <p key=2>Username:</p>
 
             <span class="text-danger">*</span>
             <span asp-validation-for="@Model.userName" class="text-danger"></span>
@@ -51,8 +51,7 @@
 
     <div class="form-group">
         <label>
-            Phone:
-
+            <p key=4>Phone:</p>
             <span class="text-danger">*</span>
             <span asp-validation-for="@Model.phone" class="text-danger"></span>
         </label>
@@ -61,7 +60,7 @@
 
     <div class="form-group">
         <label>
-            Wallet:
+            <p key=6>Wallet:</p>
 
             <span class="text-danger">*</span>
             <span asp-validation-for="@Model.wallet" class="text-danger"></span>
@@ -71,7 +70,7 @@
 
     <div class="form-group">
         <label>
-            Password:
+            <p key=5>Password:</p>
 
             <span class="text-danger">*</span>
             <span asp-validation-for="@Model.password" class="text-danger"></span>
@@ -81,7 +80,7 @@
     
     <div class="form-group">
         <label>
-            Password:
+            <p key=7>Role:</p>
 
             <span class="text-danger">*</span>
             <span asp-validation-for="@Model.role" class="text-danger"></span>
@@ -92,7 +91,7 @@
 
 
     <div class="form-group text-right">
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="center btn btn-primary" key=18>Update</button>
     </div>
 
     <div asp-validation-summary="ModelOnly" class="text-danger">
@@ -107,3 +106,13 @@
     <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="\node_modules\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js"></script>
 }    
+
+    @section Scripts{
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+}

@@ -80,6 +80,9 @@ namespace PokemonsMarketWeb.Controllers
         [HttpPost]
         public IActionResult Create(User user)
         {
+            ModelState.Remove("id");
+            ModelState.Remove("wallet");
+            ModelState.Remove("role");
             if (ModelState.IsValid) { 
                 c.Users.Add(user);
             c.SaveChanges();

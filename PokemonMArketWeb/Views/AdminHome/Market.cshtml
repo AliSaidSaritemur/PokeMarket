@@ -41,6 +41,10 @@
     </style>
 </head>
 <body>
+
+    <h2 class="center">Add New Pokemon</h2>
+        <a class="center" asp-action="CreatePokemon"> <img src="/Image/PokeCard.jpg" width=20% height=20%></a>
+
     <form asp-action="Buy" method="post">
     @for (int i = 0; i < Model.Count; i += 3)
     {
@@ -49,7 +53,7 @@
 
 
                 <div class="column border border-info">
-                   <p class="center"> <img src="/Image/@(Model[i].name).jpg" width=40% height=40%></p>
+                    <a class="d-flex justify-content-center" asp-action="Detail" asp-route-fileName="@Model[i].id"> <img src="/Image/@(Model[i].species).jpg" width=40% height=40%></a>
                        
                 <p class="center">  @Model[i].name</p>
                     <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i].id">Remove</a></p>
@@ -59,8 +63,8 @@
             {
                     <div class="column border border-info">
 
-            <p class="center"> <img src="/Image/@(Model[i+1].name).jpg" width=40% height=40%></p>
-                        <br>
+                        <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+1].id"><img src="/Image/@(Model[i+1].species).jpg" width=40% height=40%></a>
+                      
                        <p class="center"> @Model[i+1].name</p>
                         <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+1].id">Remove</a></p>
                         <p class="center">  @Model[i+1].price</p>
@@ -70,7 +74,7 @@
             {
 
                     <div class="column border border-info">
-                    <p class="center"> <img src="/Image/@(Model[i+2].name).jpg" width=40% height=40%></p>    
+                        <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
                     <p class="center">  @Model[i+2].name</p>
                         <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+2].id">Remove</a></p>
                         <p class="center">  @Model[i+2].price</p>

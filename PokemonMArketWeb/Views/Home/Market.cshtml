@@ -31,7 +31,7 @@
             float: left;
             width: 33.33%;
             padding: 10px;
-            height: 335px; 
+            height: 315px; 
         }
 
       
@@ -56,10 +56,9 @@
 
 
             <div class="column  border border-info" >
-                   <p class="d-flex justify-content-center" > <img src="/Image/@(Model[i].name).jpg" width=40% height=40%></p>
+                 <a class="d-flex justify-content-center" asp-action="Detail" asp-route-fileName="@Model[i].id"> <img src="/Image/@(Model[i].species).jpg" width=40% height=40%></a>
               
                 <p class="d-flex justify-content-center">  @Model[i].name</p>
-               <p class="d-flex justify-content-center">  <a  asp-action="Detail" asp-route-fileName="@Model[i].id">Detail</a></p>
                   <a class="d-flex justify-content-center" asp-action="Buy" asp-route-fileName="@Model[i].id">Buy</a>
                     <p class="d-flex justify-content-center">  @Model[i].price</p>
 
@@ -68,10 +67,8 @@
             {
                 <div class="column border border-info" >
 
-            <p class="center"> <img src="/Image/@(Model[i+1].name).jpg" width=40% height=40%></p>
-
-                       <p class="center"> @Model[i+1].name</p>
-                        <p class="center"><a asp-action="Detail" asp-route-fileName="@Model[i+1].id">Detail</a></p>
+                        <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+1].id"><img src="/Image/@(Model[i+1].species).jpg" width=40% height=40%></a>
+                       <p class="center"> @Model[i+1].name</p>                 
                        <a class="center" asp-action="Buy" asp-route-fileName="@Model[i+1].id">Buy</a>
                         <p class="center">  @Model[i+1].price</p>
                     </div>
@@ -80,10 +77,8 @@
             {
 
                 <div class="column border border-info">
-                    <p class="center"> <img src="/Image/@(Model[i+2].name).jpg" width=40% height=40%></p>
-                  
-                    <p class="center">  @Model[i+2].name</p>
-                       <p class="center"><a asp-action="Detail" asp-route-fileName="@Model[i+2].id">Detail</a></p>
+                        <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
+                        <p class="center">  @Model[i+2].name</p>   
                      <a  class="center" asp-action="Buy" asp-route-fileName="@Model[i+2].id">Buy</a>
                         <p class="center">  @Model[i+2].price</p>
                 </div>

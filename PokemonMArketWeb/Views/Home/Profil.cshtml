@@ -70,7 +70,7 @@
 
 
             <div class="column">
-                <p class="center"> <img src="/Image/@(Model[i].name).jpg" width=40% height=40%></p>
+                <a class="center" asp-action="Detail" asp-route-fileName="@Model[i].id"><img src="/Image/@(Model[i].species).jpg" width=40% height=40%></a>
                 <br>
                 <p class="center">  @Model[i].name</p>
                 <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i].id">Sell</a></p>
@@ -80,7 +80,7 @@
             {
                 <div class="column">
 
-                    <p class="center"> <img src="/Image/@(Model[i+1].name).jpg" width=40% height=40%></p>
+                    <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+1].id"><img src="/Image/@(Model[i+1].species).jpg" width=40% height=40%></a>
                     <br>
                     <p class="center"> @Model[i+1].name</p>
                     <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i+1].id">Sell</a></p>
@@ -92,7 +92,7 @@
             {
 
                 <div class="column">
-                    <p class="center"> <img src="/Image/@(Model[i+2].name).jpg" width=40% height=40%></p>
+                    <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
                     <br>
                     <p class="center">  @Model[i+2].name</p>
                     <p class="center"><a asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a></p>

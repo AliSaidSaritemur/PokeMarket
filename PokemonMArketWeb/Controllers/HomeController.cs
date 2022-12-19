@@ -28,11 +28,14 @@ namespace PokemonMArketWeb.Controllers
 
             var query = (from k in c.Pokemons
                          where  -1 == k.UserId
-                         select new Pokemon() { id=k.id, age=k.age,name=k.name,power=k.power,UserId=k.UserId, price = k.price }).ToList();
+                         select new Pokemon() { id=k.id, age=k.age,name=k.name,power=k.power,UserId=k.UserId, price = k.price, species=k.species }).ToList();
 
          
             return View(query);
         }
+
+
+
 
         public IActionResult Profil()
         {
@@ -42,7 +45,7 @@ namespace PokemonMArketWeb.Controllers
 
             var query = (from k in c.Pokemons
                          where user.id == k.UserId
-                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId,price=k.price }).ToList();
+                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId,price=k.price,species=k.species}).ToList();
 
             ViewBag.user = user;
             return View(query);
@@ -111,9 +114,7 @@ namespace PokemonMArketWeb.Controllers
 
         [HttpPost]
         public IActionResult AddCommet(Comment comment)
-        {
-           
-           
+        {        
             c.Comments.Add(comment);
                 c.SaveChanges();
                 return RedirectToAction("Detail", new { filename = comment.PokeId });

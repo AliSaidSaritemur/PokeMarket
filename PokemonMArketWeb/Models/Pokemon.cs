@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PokemonsMarketWeb.Models
 {
     public class Pokemon 
     {
-        [Key]
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         [MinLength(3, ErrorMessage = "Name cant be so short")]
@@ -22,8 +23,12 @@ namespace PokemonsMarketWeb.Models
     
         public int price { get; set; }
 
-
         public int UserId { get; set; }
 
+
+        [MinLength(3, ErrorMessage = "Species cant be so short")]
+        [MaxLength(35, ErrorMessage = "Species cant be so long")]
+        [Required(ErrorMessage = "Should be species")]
+        public string species { get; set; }
     }
 }

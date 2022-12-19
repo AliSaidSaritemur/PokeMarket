@@ -77,6 +77,11 @@ namespace PokemonsMarketWeb.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(300);
 
+                    b.Property<string>("species")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
+
                     b.HasKey("id");
 
                     b.ToTable("Pokemons");

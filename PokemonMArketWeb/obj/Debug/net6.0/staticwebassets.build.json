@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9+XaaIjkxHNUnS58K5209NmwU2sPzvbhoGQ/sOCWCng=",
+  "Hash": "ihw01WaXAZI5l+RvCfXnhQzDhEFz1g8dlrJludy28nY=",
   "Source": "PokemonsMarketWeb",
   "BasePath": "_content/PokemonsMarketWeb",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\Pikachu.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\Image\\PokeCard.jpg",
+      "SourceId": "PokemonsMarketWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\",
+      "BasePath": "_content/PokemonsMarketWeb",
+      "RelativePath": "Image/PokeCard.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\PokeCard.jpg"
     },
     {
       "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\Image\\Squirtle.jpg",

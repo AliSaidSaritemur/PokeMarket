@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PokemonsMarketWeb.Models
 {
     public class User
     {
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         [MaxLength(35, ErrorMessage = "Username cant be so long")]

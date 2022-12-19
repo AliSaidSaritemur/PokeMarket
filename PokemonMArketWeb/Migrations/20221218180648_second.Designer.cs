@@ -11,8 +11,8 @@ using PokemonsMarketWeb.Models;
 namespace PokemonsMarketWeb.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221217124815_addedroles")]
-    partial class addedroles
+    [Migration("20221218180648_second")]
+    partial class second
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,33 @@ namespace PokemonsMarketWeb.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("PokemonsMarketWeb.Models.Comment", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("PokeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Comments");
+                });
 
             modelBuilder.Entity("PokemonsMarketWeb.Models.Pokemon", b =>
                 {
@@ -52,6 +79,11 @@ namespace PokemonsMarketWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(300);
+
+                    b.Property<string>("species")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
 
                     b.HasKey("id");
 

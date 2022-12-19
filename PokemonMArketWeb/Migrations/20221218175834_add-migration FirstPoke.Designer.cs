@@ -11,8 +11,8 @@ using PokemonsMarketWeb.Models;
 namespace PokemonsMarketWeb.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221218012117_ada")]
-    partial class ada
+    [Migration("20221218175834_add-migration FirstPoke")]
+    partial class addmigrationFirstPoke
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,6 +79,11 @@ namespace PokemonsMarketWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(300);
+
+                    b.Property<string>("species")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
 
                     b.HasKey("id");
 

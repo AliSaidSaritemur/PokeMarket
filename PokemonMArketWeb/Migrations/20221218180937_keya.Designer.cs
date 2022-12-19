@@ -11,8 +11,8 @@ using PokemonsMarketWeb.Models;
 namespace PokemonsMarketWeb.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221217103522_addSomeValid")]
-    partial class addSomeValid
+    [Migration("20221218180937_keya")]
+    partial class keya
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,33 @@ namespace PokemonsMarketWeb.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("PokemonsMarketWeb.Models.Comment", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("PokeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Comments");
+                });
 
             modelBuilder.Entity("PokemonsMarketWeb.Models.Pokemon", b =>
                 {
@@ -53,6 +80,11 @@ namespace PokemonsMarketWeb.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(300);
 
+                    b.Property<string>("species")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
+
                     b.HasKey("id");
 
                     b.ToTable("Pokemons");
@@ -82,6 +114,12 @@ namespace PokemonsMarketWeb.Migrations
                     b.Property<string>("phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("role")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("user");
 
                     b.Property<string>("surname")
                         .IsRequired()

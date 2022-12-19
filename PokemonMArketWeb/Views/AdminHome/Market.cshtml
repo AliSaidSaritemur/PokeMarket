@@ -57,6 +57,7 @@
                        
                 <p class="center">  @Model[i].name</p>
                     <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i].id">Remove</a></p>
+                    <p class="center"><a asp-action="UpdatePokemon" asp-route-fileName="@Model[i].id">Update</a></p>
                     <p class="center">  @Model[i].price</p>
             </div>
             @if (i + 1 < Model.Count)
@@ -67,6 +68,7 @@
                       
                        <p class="center"> @Model[i+1].name</p>
                         <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+1].id">Remove</a></p>
+                        <p class="center"><a asp-action="UpdatePokemon" asp-route-fileName="@Model[i+1].id">Update</a></p>
                         <p class="center">  @Model[i+1].price</p>
                     </div>
             }
@@ -77,6 +79,7 @@
                         <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
                     <p class="center">  @Model[i+2].name</p>
                         <p class="center"><a asp-action="Remove" asp-route-fileName="@Model[i+2].id">Remove</a></p>
+                                            <p class="center"><a asp-action="UpdatePokemon" asp-route-fileName="@Model[i+2].id">Update</a></p>
                         <p class="center">  @Model[i+2].price</p>
                 </div>
             }

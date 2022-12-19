@@ -47,11 +47,9 @@ namespace PokemonsMarketWeb.Controllers
           
               
             if (searchUser != null)
-            {
-                Pokemon selectPokemon = c.Pokemons.FirstOrDefault(I => I.id == searchUser.id);
-           
+            {          
                 query = (from k in c.Pokemons
-                         where selectPokemon.id == k.UserId
+                         where searchUser.id == k.UserId
                          select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId, price = k.price, species = k.species }).ToList();
                 ViewBag.pokemons = query;
                 ViewBag.selectUser = searchUser;
@@ -136,7 +134,7 @@ namespace PokemonsMarketWeb.Controllers
         }
       
 
-            [HttpGet]
+        [HttpGet]
         public IActionResult DeleteComment(string filename)
         {
             string asdasd = filename;
@@ -156,6 +154,109 @@ namespace PokemonsMarketWeb.Controllers
             c.SaveChanges();
             return RedirectToAction("Detail", new { filename = comment.PokeId });
 
+
+        }
+        [HttpGet]
+        public IActionResult UpdatePokemon(string filename)
+        {
+            string asdasd = filename;
+            Pokemon updatePokemon = c.Pokemons.FirstOrDefault(I => I.id == Int32.Parse(filename));
+            return View(updatePokemon);
+        }
+        [HttpPost]
+        public IActionResult UpdatePokemon(Pokemon pokemon)
+        {
+            ModelState.Remove("id");
+            ModelState.Remove("UserId");
+            ModelState.Remove("species");
+            if (ModelState.IsValid)
+            {
+                var updatePokemon = c.Pokemons.FirstOrDefault(I => I.id == pokemon.id);
+
+                updatePokemon.price=pokemon.price;
+                updatePokemon.power=pokemon.power;
+                updatePokemon.age=pokemon.age;
+                updatePokemon.species=pokemon.species;
+                updatePokemon.name = pokemon.name;
+                c.SaveChanges();
+                return RedirectToAction("Market");
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult DeleteUser(string username)
+        {
+
+            var userId = Request.Cookies["id"];
+            User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
+            List<Pokemon> query;
+            ViewBag.user = user;
+            if (username != null)
+            {
+                string asdasd = username;
+                User deleteUser = c.Users.FirstOrDefault(a => a.userName == username);
+
+                if (deleteUser != null)
+                {
+                    List<Pokemon> Pokelist = c.Pokemons.Where(I => I.UserId == deleteUser.id).ToList();
+
+                    foreach (var item in Pokelist)
+                    {
+                        item.UserId = -1;
+                    }
+
+
+                    c.Users.Remove(deleteUser);
+                    c.SaveChanges();
+                    return RedirectToAction("Profil");
+                }
+            }
+
+            return RedirectToAction("Profil");
+        }
+
+
+        [HttpGet]
+        public IActionResult UpdateUser(string username)
+        {
+            string asdasd = username;
+            var userId = Request.Cookies["id"];
+            User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
+            List<Pokemon> query;
+            ViewBag.user = user;
+            if (username != null)
+            {
+
+                User deleteUser = c.Users.FirstOrDefault(a => a.userName == username);
+
+                if (deleteUser != null)
+                {                    
+                    return View(deleteUser);
+                }
+            }
+
+            return RedirectToAction("Profil");
+        }
+        [HttpPost]
+        public IActionResult UpdateUser(User user)
+        {
+            ModelState.Remove("id");
+            if (ModelState.IsValid)
+            {
+                var updateUser = c.Users.FirstOrDefault(I => I.id == user.id);
+
+                updateUser.name = user.name;
+                updateUser.surname = user.surname;
+                updateUser.wallet = user.wallet;
+                updateUser.phone = user.phone;
+                updateUser.userName = user.userName;
+                updateUser.role = user.role;
+                updateUser.password = user.password;
+                c.SaveChanges();
+                return RedirectToAction("Market");
+            }
+            return View();
         }
 
     }

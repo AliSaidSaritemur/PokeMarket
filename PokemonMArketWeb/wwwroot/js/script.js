@@ -29,6 +29,7 @@ $(document).ready(function () {
             '21': 'Pokemon Güncelle',
             '22': 'Kullanıcı getir',
             '23': 'Pokemonları',
+            '24': 'Çıkış Yap',
         },
 
 
@@ -57,6 +58,7 @@ $(document).ready(function () {
             '21': 'Update Pokemon',
             '22': 'Get User',
             '23': "'s Pokemons",
+            '24': 'Log Out',
         
         },
 

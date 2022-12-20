@@ -74,7 +74,7 @@
                 <br>
                 <b class="center">  @Model[i].name</b>
                 <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i].price ₺</p>
-                <p key=11 class ="rounded center p-3 mb-2 bg-warning text-dark"><a style="text-decoration: none" class="center  text-dark" asp-action="Sell" asp-route-fileName="@Model[i].id">Sell</a></p>
+            <a key=11 style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i].id">Sell</a>
                 
             </div>
             @if (i + 1 < Model.Count)
@@ -85,7 +85,7 @@
                     <br>
                     <b class="center"> @Model[i+1].name</b>
                     <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i+1].price ₺</p>
-                    <p key=11 class="rounded center p-3 mb-2 bg-warning text-dark"><a style="text-decoration: none"  class="center text-dark" asp-action="Sell" asp-route-fileName="@Model[i+1].id">Sell</a></p>
+                  <a key=11 style="text-decoration: none" class="center rounded center p-3 mb-2 bg-warning text-dark" asp-action="Sell" asp-route-fileName="@Model[i+1].id">Sell</a>
                    
 
                 </div>
@@ -98,7 +98,7 @@
                     <br>
                     <b class="center">  @Model[i+2].name</b>
                     <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i+2].price ₺</p>
-                    <p key=11 class ="rounded center p-3 mb-2 bg-warning "><a style="text-decoration: none" class="center text-dark" asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a></p>
+                   <a key=11 style="text-decoration: none" class="center text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a>
                    
                 </div>
             }

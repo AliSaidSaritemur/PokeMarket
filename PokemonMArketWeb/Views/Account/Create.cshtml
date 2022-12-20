@@ -1,10 +1,8 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = "beginnerLayout";
 }
 @using PokemonsMarketWeb.Models
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
 @model User
 
 
@@ -25,7 +23,7 @@
 
         <div class="form-group">
             <label>
-                <p key=1>Surname:</p>
+                <label key=1>Surname:</label>
                 <span class="text-danger">*</span>
                 <span asp-validation-for="@Model.surname" class="text-danger"></span>
 
@@ -35,7 +33,7 @@
 
         <div class="form-group">
             <label>
-                <p key=2>Username:</p>
+                <label key=2>Username:</label>
 
                 <span class="text-danger">*</span>
                 <span asp-validation-for="@Model.userName" class="text-danger"></span>
@@ -54,7 +52,7 @@
 
         <div class="form-group">
             <label>
-                <p key=4>Phone:</p>
+                <label key=4>Phone:</label>
                 <span class="text-danger">*</span>
                 <span asp-validation-for="@Model.phone" class="text-danger"></span>
             </label>
@@ -63,7 +61,7 @@
 
         <div class="form-group">
             <label>
-                <p key=5>Password:</p>
+                <label key=5>Password:</label>
 
                 <span class="text-danger">*</span>
                 <span asp-validation-for="@Model.password" class="text-danger"></span>
@@ -73,7 +71,7 @@
 
         <div class="form-group">
             <label>
-                <p key=6>Wallet:</p>
+                <label key=6>Wallet:</label>
 
                 <span class="text-danger">*</span>
                 <span asp-validation-for="@Model.password" class="text-danger"></span>

@@ -9,7 +9,7 @@ using System.Globalization;
 namespace PokemonMArketWeb.Controllers
 {
 
-
+    [Authorize(Roles = "user")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -40,6 +40,7 @@ namespace PokemonMArketWeb.Controllers
         public IActionResult Profil()
         {
             var userId = Request.Cookies["id"];
+
             User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
 
 

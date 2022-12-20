@@ -46,9 +46,10 @@ namespace PokemonsMarketWeb.Controllers
                 var claim = new List<Claim>
             {
                 new Claim(ClaimTypes.Name,user.mail),
-            new Claim(ClaimTypes.Role, user.role)};
-
-                var claimIdentty = new ClaimsIdentity(claim, CookieAuthenticationDefaults.AuthenticationScheme);
+                  new Claim(ClaimTypes.Role, user.role),
+                 new Claim(ClaimTypes.Role,"user"),
+                };
+            var claimIdentty = new ClaimsIdentity(claim, CookieAuthenticationDefaults.AuthenticationScheme);
                 var authProperties = new AuthenticationProperties();
                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentty), authProperties);
                 Response.Cookies.Append("id",user.id.ToString());  

@@ -30,5 +30,8 @@ namespace PokemonsMarketWeb.Models
         [MaxLength(35, ErrorMessage = "Species cant be so long")]
         [Required(ErrorMessage = "Should be species")]
         public string species { get; set; }
+
+
+        public string sellStatue { get; set; }
     }
 }

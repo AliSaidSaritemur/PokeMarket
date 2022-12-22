@@ -25,6 +25,7 @@ namespace PokemonsMarketWeb.Models
             modelBuilder.Entity<User>().Property(a => a.role).HasDefaultValue("user");
             modelBuilder.Entity<Pokemon>().Property(a => a.UserId).HasDefaultValue(-1);
             modelBuilder.Entity<Pokemon>().Property(a => a.price).HasDefaultValue(300);
+            modelBuilder.Entity<Pokemon>().Property(a => a.sellStatue).HasDefaultValue("selling");
 
         }
     }

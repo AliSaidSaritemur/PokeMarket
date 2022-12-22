@@ -19,7 +19,7 @@
             float: left;
             width: 33.33%;
             padding: 10px;
-            height: 300px; 
+            height: 350px; 
         }
 
       
@@ -137,24 +137,40 @@
         <div class="row">
 
 
-                <div class="column border border-info">
+                <div class="column border border-in fo">
                     <a class="center" asp-action="Detail" asp-route-fileName="@ViewBag.pokemons[i].id"><img src="/Image/@(ViewBag.pokemons[i].species).jpg" width=40% height=40%></a>
-                <br>
+   
                 <b class="center">  @ViewBag.pokemons[i].name</b>
-                    <p class="center">  @ViewBag.pokemons[i].price ₺</p>
+                 <p class="center bg-success text-white rounded">  @ViewBag.pokemons[i].price ₺</p>
+                                          @if (ViewBag.pokemons[i].sellStatue.ToString() != "selling")
+                {
+                        <p  class="rounded center p-3 mb-2 text-dark bg-warning">Profil</p>
+                }
+                @if (ViewBag.pokemons[i].sellStatue.ToString() == "selling")
+                {
+                    <p  class="center  text-dark rounded center p-3 mb-2 bg-warning"  key=25>At Market</p>
+                }
                     <p class="center"><a key =17 class="btn btn-danger" asp-action="Remove" asp-route-fileName="@ViewBag.pokemons[i].id">Remove</a>&nbsp &nbsp<a class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@ViewBag.pokemons[i].id">Update</a></p>             
-                   
+
             </div>
                 @if (i + 1 < ViewBag.pokemons.Count)
             {
                 <div class="column border border-info">
 
                         <a class="center" asp-action="Detail" asp-route-fileName="@ViewBag.pokemons[i+1].id"><img src="/Image/@(ViewBag.pokemons[i+1].species).jpg" width=40% height=40%></a>
-                    <br>
+            
                         <b class="center"> @ViewBag.pokemons[i+1].name</b>
-                        <p class="center">  @ViewBag.pokemons[i+1].price ₺</p>
+                        <p class="center bg-success text-white rounded">  @ViewBag.pokemons[i+1].price ₺</p>
+                        @if (ViewBag.pokemons[i + 1].sellStatue.ToString() != "selling")
+                        {
+                            <p  class="center  text-dark rounded center p-3 mb-2 bg-warning">Profil</p>
+                        }
+                        @if (ViewBag.pokemons[i + 1].sellStatue.ToString() == "selling")
+                        {
+                            <p class="center  text-dark rounded center p-3 mb-2 bg-warning" key=25>At Market</p>
+                        }
                         <p class="center"><a key =17 class="btn btn-danger" asp-action="Remove" asp-route-fileName="@ViewBag.pokemons[i+1].id">Remove</a>&nbsp &nbsp<a key=18 class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@ViewBag.pokemons[i+1].id">Update</a></p>
-
+            
                        
 
                 </div>
@@ -164,11 +180,20 @@
 
                 <div class="column border border-info">
                         <a class="center" asp-action="Detail" asp-route-fileName="@ViewBag.pokemons[i+2].id"><img src="/Image/@(ViewBag.pokemons[i+2].species).jpg" width=40% height=40%></a>
-                    <br>
+                   
                         <b class="center">  @ViewBag.pokemons[i+2].name</b>
-                        <p class="center">  @ViewBag.pokemons[i+2].price ₺</p>
+                        <p class="center bg-success text-white rounded">  @ViewBag.pokemons[i+2].price ₺</p>
+                        @if (ViewBag.pokemons[i + 2].sellStatue.ToString() != "selling")
+                        {
+                            <p class="center  text-dark rounded center p-3 mb-2 bg-warning">Profil</p>
+                        }
+                        @if (ViewBag.pokemons[i + 2].sellStatue.ToString() == "selling")
+                        {
+                            <p class="center  text-dark rounded center p-3 mb-2 bg-warning" key=25>At Market</p>
+                        }
                         <p class="center"><a key =17 class="btn btn-danger" asp-action="Remove" asp-route-fileName="@ViewBag.pokemons[i+2].id">Remove</a>&nbsp &nbsp<a key=18 class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@ViewBag.pokemons[i+2].id">Update</a></p>
-                     
+             
+                       
                 </div>
             }
                

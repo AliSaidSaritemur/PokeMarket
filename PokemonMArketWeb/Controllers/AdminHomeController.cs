@@ -22,7 +22,7 @@ namespace PokemonsMarketWeb.Controllers
 
                  query = (from k in c.Pokemons
                              where user.id == k.UserId
-                             select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId, price = k.price, species = k.species }).ToList();
+                             select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId, price = k.price, species = k.species,sellStatue=k.sellStatue}).ToList();
 
             ViewBag.pokemons = query;
             return View(new LoginUser());
@@ -46,7 +46,7 @@ namespace PokemonsMarketWeb.Controllers
             {          
                 query = (from k in c.Pokemons
                          where searchUser.id == k.UserId
-                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId, price = k.price, species = k.species }).ToList();
+                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId, price = k.price, species = k.species, sellStatue = k.sellStatue }).ToList();
                 ViewBag.pokemons = query;
                 ViewBag.selectUser = searchUser;
             }
@@ -59,15 +59,13 @@ namespace PokemonsMarketWeb.Controllers
 
         public IActionResult Market()
         {
-            if (Request.Cookies["id"] == null)
-            {
-                var userId = Request.Cookies["id"];
-                User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
-            }
+            var userId = Request.Cookies["id"];
+            User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
+
 
             var query = (from k in c.Pokemons
-                         where -1 == k.UserId
-                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId, price = k.price,species=k.species }).ToList();
+                         where "selling" == k.sellStatue && k.UserId != Int32.Parse(userId)
+                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId, price = k.price, species = k.species, sellStatue = k.sellStatue }).ToList();
 
 
             return View(query);
@@ -119,11 +117,21 @@ namespace PokemonsMarketWeb.Controllers
                          where detailPokemon.id == k.PokeId
                          select new Comment() { id = k.id, text = k.text, PokeId = k.PokeId, UserId = k.UserId, UserName = k.UserName }).ToList();
 
+            User salesuser = c.Users.FirstOrDefault(a => a.id == detailPokemon.UserId);
+            string salesUserName;
+            if (detailPokemon.UserId != -1)
+                salesUserName = salesuser.userName;
+            else
+            {
+                salesUserName = "Market";
+            }
+
             var userId = Request.Cookies["id"];
             User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
             ViewBag.comments = query;
             ViewBag.pokemon = detailPokemon;
             ViewBag.user = user;
+            ViewBag.salesUserName = salesUserName;
 
 
             return View(new Comment());
@@ -165,10 +173,11 @@ namespace PokemonsMarketWeb.Controllers
             ModelState.Remove("id");
             ModelState.Remove("UserId");
             ModelState.Remove("species");
+            ModelState.Remove("sellStatue");
+            string pokeId = (pokemon.id).ToString();
             if (ModelState.IsValid)
             {
                 var updatePokemon = c.Pokemons.FirstOrDefault(I => I.id == pokemon.id);
-
                 updatePokemon.price=pokemon.price;
                 updatePokemon.power=pokemon.power;
                 updatePokemon.age=pokemon.age;
@@ -177,7 +186,7 @@ namespace PokemonsMarketWeb.Controllers
                 c.SaveChanges();
                 return RedirectToAction("Market");
             }
-            return View();
+            return View(pokemon);
         }
 
         [HttpGet]

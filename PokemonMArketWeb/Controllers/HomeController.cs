@@ -21,14 +21,13 @@ namespace PokemonMArketWeb.Controllers
 
         public IActionResult Market()
         {
-            if (Request.Cookies["id"]==null) { 
             var userId = Request.Cookies["id"];
-            User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
-            }
+            User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));                 
+            
 
             var query = (from k in c.Pokemons
-                         where  -1 == k.UserId
-                         select new Pokemon() { id=k.id, age=k.age,name=k.name,power=k.power,UserId=k.UserId, price = k.price, species=k.species }).ToList();
+                         where  "selling" == k.sellStatue && k.UserId != Int32.Parse(userId)
+                         select new Pokemon() { id=k.id, age=k.age,name=k.name,power=k.power,UserId=k.UserId, price = k.price, species=k.species, sellStatue = k.sellStatue }).ToList();
 
          
             return View(query);
@@ -46,7 +45,7 @@ namespace PokemonMArketWeb.Controllers
 
             var query = (from k in c.Pokemons
                          where user.id == k.UserId
-                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId,price=k.price,species=k.species}).ToList();
+                         select new Pokemon() { id = k.id, age = k.age, name = k.name, power = k.power, UserId = k.UserId,price=k.price,species=k.species,sellStatue=k.sellStatue}).ToList();
 
             ViewBag.user = user;
             return View(query);
@@ -61,7 +60,17 @@ namespace PokemonMArketWeb.Controllers
 
             var userId = Request.Cookies["id"];
             User upDateUser = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
-            if (upDateUser.wallet-updatePokemon.price>=0) { 
+
+
+
+            if (updatePokemon.UserId != -1)
+            {
+                User owner = c.Users.FirstOrDefault(a => a.id == updatePokemon.UserId);
+                owner.wallet = owner.wallet + updatePokemon.price;
+            }
+
+
+                if (upDateUser.wallet-updatePokemon.price>=0) { 
             updatePokemon.UserId = upDateUser.id;
             
             upDateUser.wallet = upDateUser.wallet - updatePokemon.price;
@@ -69,7 +78,10 @@ namespace PokemonMArketWeb.Controllers
                 if(updatePokemon.price>100)
             updatePokemon.price = updatePokemon.price - 50;
 
-            c.SaveChanges();
+
+
+                updatePokemon.sellStatue = "not selling";
+                c.SaveChanges();
             return RedirectToAction("Profil", "Home");
             }
 
@@ -82,13 +94,19 @@ namespace PokemonMArketWeb.Controllers
             string asdasd = filename;
             Pokemon updatePokemon = c.Pokemons.FirstOrDefault(I => I.id == Int32.Parse(filename));
 
-            var userId = Request.Cookies["id"];
-            User upDateUser = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
 
-            updatePokemon.UserId = -1;
+            updatePokemon.sellStatue = "selling"; 
+            c.SaveChanges();
+            return RedirectToAction("Profil", "Home");
+        }
 
-            upDateUser.wallet = upDateUser.wallet + updatePokemon.price;
-            updatePokemon.price = updatePokemon.price +35;
+        [HttpGet]
+        public IActionResult NotSell(string filename)
+        {
+            string asdasd = filename;
+            Pokemon updatePokemon = c.Pokemons.FirstOrDefault(I => I.id == Int32.Parse(filename));
+
+            updatePokemon.sellStatue = "not selling";
             c.SaveChanges();
             return RedirectToAction("Profil", "Home");
         }
@@ -105,9 +123,20 @@ namespace PokemonMArketWeb.Controllers
 
             var userId = Request.Cookies["id"];
             User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
+            
+            User salesuser = c.Users.FirstOrDefault(a => a.id == detailPokemon.UserId);
+            string salesUserName;
+            if (detailPokemon.UserId != -1)
+             salesUserName= salesuser.userName;
+            else
+            {
+                salesUserName = "Market";
+            }
+
             ViewBag.comments=query;
             ViewBag.pokemon = detailPokemon;
             ViewBag.user = user;
+            ViewBag.salesUserName = salesUserName;
 
 
             return View(new Comment());

@@ -65,7 +65,7 @@
 
     @for (int i = 0; i < Model.Count; i += 3)
     {
-
+ 
         <div class="row">
 
 
@@ -74,9 +74,17 @@
                 <br>
                 <b class="center">  @Model[i].name</b>
                 <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i].price ₺</p>
+                @if (Model[i].sellStatue.ToString() != "selling")
+                {
             <a key=11 style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i].id">Sell</a>
-                
+                }
+                @if (Model[i].sellStatue.ToString() == "selling")
+                {
+                    <a  style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="NotSell" asp-route-fileName="@Model[i].id" key=25>At Market</a>
+                }
+
             </div>
+
             @if (i + 1 < Model.Count)
             {
                 <div class="column border border-info">
@@ -85,8 +93,14 @@
                     <br>
                     <b class="center"> @Model[i+1].name</b>
                     <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i+1].price ₺</p>
-                  <a key=11 style="text-decoration: none" class="center rounded center p-3 mb-2 bg-warning text-dark" asp-action="Sell" asp-route-fileName="@Model[i+1].id">Sell</a>
-                   
+                    @if (Model[i + 1].sellStatue.ToString() != "selling")
+                    {
+                        <a key=11 style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i + 1].id">Sell</a>
+                    }
+                    @if (Model[i + 1].sellStatue.ToString() == "selling")
+                    {
+                        <a style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="NotSell" asp-route-fileName="@Model[i + 1].id" key=25>At Market</a>
+                    }
 
                 </div>
             }
@@ -98,8 +112,14 @@
                     <br>
                     <b class="center">  @Model[i+2].name</b>
                     <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i+2].price ₺</p>
-                   <a key=11 style="text-decoration: none" class="center text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a>
-                   
+                    @if (Model[i+2].sellStatue.ToString() != "selling")
+                    {
+                        <a key=11 style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a>
+                    }
+                    @if (Model[i + 2].sellStatue.ToString() == "selling")
+                    {
+                        <a style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="NotSell" asp-route-fileName="@Model[i+2].id" key=25>At Market</a>
+                    }
                 </div>
             }
         </div>

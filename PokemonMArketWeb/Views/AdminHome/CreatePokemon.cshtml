@@ -14,9 +14,12 @@
             <label key=0>Name</label>:  <span class="text-danger">*</span>
             <span asp-validation-for="@Model.name" class="text-danger"></span>
         </label>
+
         <input asp-for="@Model.name" class="form-control" />
     </div>
 
+    <input asp-for="@Model.id" class="form-control" type="hidden" />
+    <input asp-for="@Model.UserId" class="form-control" type="hidden" />
     <label key=14>Species</label>:
     <div class="select form-group">
         <select asp-for="@Model.species">

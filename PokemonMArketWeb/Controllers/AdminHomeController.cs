@@ -98,6 +98,7 @@ namespace PokemonsMarketWeb.Controllers
             ModelState.Remove("id");
             ModelState.Remove("UserId");
             ModelState.Remove("species");
+            ModelState.Remove("sellStatue");
             if (ModelState.IsValid)
             {
                 c.Pokemons.Add(pokemon);

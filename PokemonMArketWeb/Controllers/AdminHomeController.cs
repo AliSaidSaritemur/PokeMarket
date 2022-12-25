@@ -265,5 +265,14 @@ namespace PokemonsMarketWeb.Controllers
             return View();
         }
 
+    
+        public IActionResult GetAllPokemons()
+        {
+            PokemonAPIResponseController PAR =new();
+
+            List < Pokemon > pokelist= PAR.GetAllPokemons().Result;
+            return View(pokelist);
+        }
+
     }
 }

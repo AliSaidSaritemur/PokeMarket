@@ -1,21 +1,19 @@
-﻿@{
-
+﻿
+@{
     Layout = "adminLayout";
 }
 @using PokemonsMarketWeb.Models
 
 @model List<Pokemon>
-@{
-    string path = Directory.GetCurrentDirectory()+ "wwwroot/";
-    ViewData["PokeId"] = "0";
-}
+<h3 class="center">Pokemons</h3>
 
 
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Pokemons</title>  
     <style>
-        * {
+           * {
             box-sizing: border-box;
         }
 
@@ -37,17 +35,10 @@
   border: 5px ;
   display: flex;
   justify-content: center;
-}
-    </style>
+}    </style>
 </head>
 <body>
-
-    <h2 class="center" key=19>Add New Pokemon</h2>
-        <a class="center" asp-action="CreatePokemon"> <img src="/Image/PokeCard.jpg" width=20% height=20%></a>
-        <br>
-
-
-    @for (int i = 0; i < Model.Count; i += 3)
+     @for (int i = 0; i < Model.Count; i += 3)
     {
 
         <div class="row">
@@ -89,10 +80,9 @@
         </div>
         <br />
     }
-
+  
 </body>
 </html>
-        
 @section Scripts{
 
 
@@ -102,6 +92,4 @@
 
     <script src="/js/script.js"></script>
 }
-         
-
-
+    

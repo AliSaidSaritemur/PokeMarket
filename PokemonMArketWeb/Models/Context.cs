@@ -8,6 +8,7 @@ namespace PokemonsMarketWeb.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Pokemon> Pokemons { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<PokemonSpecies> pokemonSpecies{ get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,7 +27,8 @@ namespace PokemonsMarketWeb.Models
             modelBuilder.Entity<Pokemon>().Property(a => a.UserId).HasDefaultValue(-1);
             modelBuilder.Entity<Pokemon>().Property(a => a.price).HasDefaultValue(300);
             modelBuilder.Entity<Pokemon>().Property(a => a.sellStatue).HasDefaultValue("selling");
-
+            modelBuilder.Entity<PokemonSpecies>().Property(a => a.detailColor).HasDefaultValue("blue");
+            modelBuilder.Entity<PokemonSpecies>().Property(a => a.rarity).HasDefaultValue("Common");
         }
     }
 

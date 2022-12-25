@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a0vdWYqCpaKXk3g8z88o2baiOwUmuWxpDqdlv1Faxo+39wbC+/Azr9k/8tK8hf8Cb4AivO65wVSD1NumYp4rbA==",
+  "dgSpecHash": "EAWlJ9nKt/dfvpghCvNu4Ot7LBMwfvts3j+23XlXgd9Br0WHR+M5hUN+GJgAKBlBKzb93/Dn91dcZkTDAlQekw==",
   "success": true,
   "projectFilePath": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\PokemonsMarketWeb.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\alisa\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\alisa\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\alisa\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\alisa\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\alisa\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\alisa\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\alisa\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",

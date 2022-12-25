@@ -81,3 +81,4 @@ C:\Users\alisa\source\repos\PokemonMArketWeb\PokemonMArketWeb\obj\Debug\net6.0\r
 C:\Users\alisa\source\repos\PokemonMArketWeb\PokemonMArketWeb\obj\Debug\net6.0\PokemonsMarketWeb.pdb
 C:\Users\alisa\source\repos\PokemonMArketWeb\PokemonMArketWeb\obj\Debug\net6.0\PokemonsMarketWeb.genruntimeconfig.cache
 C:\Users\alisa\source\repos\PokemonMArketWeb\PokemonMArketWeb\obj\Debug\net6.0\ref\PokemonsMarketWeb.dll
+C:\Users\alisa\source\repos\PokemonMArketWeb\PokemonMArketWeb\bin\Debug\net6.0\Newtonsoft.Json.dll

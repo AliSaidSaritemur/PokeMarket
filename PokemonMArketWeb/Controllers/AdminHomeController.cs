@@ -274,5 +274,37 @@ namespace PokemonsMarketWeb.Controllers
             return View(pokelist);
         }
 
+
+        public IActionResult DeletePokemonWithAPI(string filename)
+        {
+            string asdasd = filename;
+            PokemonAPIResponseController PAR = new();
+          PAR.Delete(Int32.Parse(filename));
+            return RedirectToAction("GetAllPokemons");
+        }
+
+        public IActionResult ApiUpdatePokemon(string filename)
+        {
+            string asdasd = filename;
+            Pokemon updatePokemon = c.Pokemons.FirstOrDefault(I => I.id == Int32.Parse(filename));
+            return View(updatePokemon);
+        }
+
+        [HttpPost]
+        public IActionResult ApiUpdatePokemon(Pokemon pokemon)
+        {
+            ModelState.Remove("id");
+            ModelState.Remove("UserId");
+            ModelState.Remove("species");
+            ModelState.Remove("sellStatue");
+            string pokeId = (pokemon.id).ToString();
+            if (ModelState.IsValid)
+            {
+                PokemonAPIResponseController PAR = new();
+                PAR.Update(pokemon);
+                return RedirectToAction("Market");
+            }
+            return View(pokemon);
+        }
     }
 }

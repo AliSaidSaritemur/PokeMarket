@@ -32,6 +32,8 @@ $(document).ready(function () {
             '24': 'Çıkış Yap',
             '25': 'Markette',
             '26': 'Satıcı',
+            '27': 'Pokemonlar',
+            '28': 'Profil',
         },
 
 
@@ -63,6 +65,8 @@ $(document).ready(function () {
             '24': 'Log Out',
             '25': 'At Market',
             '26': 'Seller',
+            '27': 'Pokemons',
+            '28': 'Profile',
         },
 
 

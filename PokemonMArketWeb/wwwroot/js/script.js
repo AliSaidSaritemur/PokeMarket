@@ -34,6 +34,7 @@ $(document).ready(function () {
             '26': 'Satıcı',
             '27': 'Pokemonlar',
             '28': 'Profil',
+            '29': 'Bakiye',
         },
 
 
@@ -67,6 +68,7 @@ $(document).ready(function () {
             '26': 'Seller',
             '27': 'Pokemons',
             '28': 'Profile',
+            '29': 'Balance',
         },
 
 

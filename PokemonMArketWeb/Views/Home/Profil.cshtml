@@ -56,13 +56,12 @@
                     <td>@ViewBag.user.name</td>
                 <td>@ViewBag.user.surname</td>
                 <td>@ViewBag.user.wallet ₺</td>
-
                 </tr>
 
         </tbody>
     </table>
-
-
+    <a asp-action="balanceLoading" class="center"><img src="/Image/wallet.jpg" width=10% height=120%> </a>
+    <br>
     @for (int i = 0; i < Model.Count; i += 3)
     {
  
@@ -73,7 +72,7 @@
                 <a class="center" asp-action="Detail" asp-route-fileName="@Model[i].id"><img src="/Image/@(Model[i].species).jpg" width=40% height=40%></a>
                 <br>
                 <b class="center">  @Model[i].name</b>
-                <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i].price ₺</p>
+                <a class="rounded center p-3 mb-2 bg-success text-white" asp-action="UpdatePokemonfromUser" asp-route-fileName="@Model[i].id">  @Model[i].price ₺</a>
                 @if (Model[i].sellStatue.ToString() != "selling")
                 {
             <a key=11 style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i].id">Sell</a>
@@ -92,7 +91,7 @@
                     <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+1].id"><img src="/Image/@(Model[i+1].species).jpg" width=40% height=40%></a>
                     <br>
                     <b class="center"> @Model[i+1].name</b>
-                    <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i+1].price ₺</p>
+                    <a class="rounded center p-3 mb-2 bg-success text-white" asp-action="UpdatePokemonfromUser" asp-route-fileName="@Model[i+1].id">  @Model[i+1].price ₺</a>
                     @if (Model[i + 1].sellStatue.ToString() != "selling")
                     {
                         <a key=11 style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i + 1].id">Sell</a>
@@ -111,7 +110,7 @@
                     <a class="center" asp-action="Detail" asp-route-fileName="@Model[i+2].id"><img src="/Image/@(Model[i+2].species).jpg" width=40% height=40%></a>
                     <br>
                     <b class="center">  @Model[i+2].name</b>
-                    <p class="rounded center p-3 mb-2 bg-success text-white">  @Model[i+2].price ₺</p>
+                    <a class="rounded center p-3 mb-2 bg-success text-white" asp-action="UpdatePokemonfromUser" asp-route-fileName="@Model[i+2].id">  @Model[i+2].price ₺</a>
                     @if (Model[i+2].sellStatue.ToString() != "selling")
                     {
                         <a key=11 style="text-decoration: none" class="center  text-dark rounded center p-3 mb-2 bg-warning" asp-action="Sell" asp-route-fileName="@Model[i+2].id">Sell</a>

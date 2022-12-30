@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bKTYeZqRlN07l8XFUH0DnBUa1LZ4nK3fvmu5eLzwKEg=",
+  "Hash": "EzyQEkGnsECcIu7s+6csXj3Hr0gtTZvUGpZL6GXzs0o=",
   "Source": "PokemonsMarketWeb",
   "BasePath": "_content/PokemonsMarketWeb",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\Squirtle.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\Image\\wallet.jpg",
+      "SourceId": "PokemonsMarketWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\",
+      "BasePath": "_content/PokemonsMarketWeb",
+      "RelativePath": "Image/wallet.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\wallet.jpg"
     },
     {
       "Identity": "C:\\Users\\alisa\\source\\repos\\PokemonMArketWeb\\PokemonMArketWeb\\wwwroot\\js\\script.js",

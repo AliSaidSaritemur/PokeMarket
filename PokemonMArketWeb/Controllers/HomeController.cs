@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using PokemonMArketWeb.Models;
+using PokemonsMarketWeb.Controllers;
 using PokemonsMarketWeb.Models;
 using System.Diagnostics;
 using System.Globalization;
@@ -38,6 +39,7 @@ namespace PokemonMArketWeb.Controllers
 
         public IActionResult Profil()
         {
+            
             var userId = Request.Cookies["id"];
 
             User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
@@ -162,7 +164,50 @@ namespace PokemonMArketWeb.Controllers
         }
 
 
+        public IActionResult UpdatePokemonfromUser(string filename)
+        {
+            string asdasd = filename;
+            Pokemon updatePokemon = c.Pokemons.FirstOrDefault(I => I.id == Int32.Parse(filename));
+            return View(updatePokemon);
+        }
 
+        [HttpPost]
+        public IActionResult UpdatePokemonfromUser(Pokemon pokemon)
+        {
+            ModelState.Remove("id");
+            ModelState.Remove("UserId");
+            ModelState.Remove("species");
+            ModelState.Remove("sellStatue");
+            ModelState.Remove("age");
+            ModelState.Remove("power");
+
+            string pokeId = (pokemon.id).ToString();
+            if (ModelState.IsValid)
+            {
+                PokemonAPIResponseController PAR = new();
+                PAR.Update(pokemon);
+                Thread.Sleep(250);
+                return RedirectToAction("Profil");
+            }
+            return View(pokemon);
+        }
+
+        public IActionResult balanceLoading()
+        {
+     
+            return View(new User());
+        }
+
+        [HttpPost]
+        public IActionResult balanceLoading(User balanceUser)
+        {
+            var userId = Request.Cookies["id"];
+            User user = c.Users.FirstOrDefault(a => a.id == Int32.Parse(userId));
+
+            user.wallet = user.wallet + balanceUser.wallet;
+            c.SaveChanges();
+            return RedirectToAction("Profil");
+        }
 
     }
 }

@@ -302,7 +302,7 @@ namespace PokemonsMarketWeb.Controllers
             {
                 PokemonAPIResponseController PAR = new();
                 PAR.Update(pokemon);
-                return RedirectToAction("Market");
+                return RedirectToAction("GetAllPokemons");
             }
             return View(pokemon);
         }

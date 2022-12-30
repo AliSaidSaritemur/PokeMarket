@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "adminLayout";
+    Layout = "_Layout";
 }
 @using PokemonsMarketWeb.Models
 
@@ -8,7 +8,7 @@
 
 <h3 key=21>Update Pokemon</h3>
 
-<form asp-action="ApiUpdatePokemon" asp-controller="AdminHome" method="post">
+<form asp-action="UpdatePokemonfromUser" asp-controller="Home" method="post">
     <div class="form-group">
         <label>
             <label key=0>Name</label>: <span class="text-danger">*</span>
@@ -19,28 +19,11 @@
 
     <input asp-for="@Model.id" class="form-control" type="hidden" />
     <input asp-for="@Model.UserId" class="form-control" type="hidden" />
+    <input asp-for="@Model.species" class="form-control" type="hidden" />
+    <input asp-for="@Model.power" class="form-control" type="hidden" />
+    <input asp-for="@Model.age" class="form-control" type="hidden" />
     <input asp-for="@Model.sellStatue" class="form-control" type="hidden" />
-
     <label key=14>Species</label>:
-    <div class="select form-group">
-        <select asp-for="@Model.species">
-            <option value="Bulbasaur">Bulbasaur</option>
-            <option value="Charmander">Charmander</option>
-            <option value="Jigglypuff">Jigglypuff</option>
-            <option value="Pikachu">Pikachu</option>
-            <option value="Squirtle">Squirtle</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>
-            <label key=12> Power</label>:
-
-            <span class="text-danger">*</span>
-            <span asp-validation-for="@Model.power" class="text-danger"></span>
-        </label>
-        <input asp-for="@Model.power" class="form-control" />
-    </div>
 
     <div class="form-group">
         <label>
@@ -51,17 +34,6 @@
         </label>
         <input asp-for="@Model.price" class="form-control" />
     </div>
-
-    <div class="form-group">
-        <label>
-            <label key=13> Age </label>:
-
-            <span class="text-danger">*</span>
-            <span asp-validation-for="@Model.age" class="text-danger"></span>
-        </label>
-        <input asp-for="@Model.age" class="form-control" />
-    </div>
-
 
     <div class="form-group text-right">
         <button type="submit" class="center btn btn-primary" key=18>Update</button>

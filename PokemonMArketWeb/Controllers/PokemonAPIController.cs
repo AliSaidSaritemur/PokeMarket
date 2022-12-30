@@ -49,6 +49,7 @@ namespace PokemonsMarketWeb.Controllers
             {
                 c.Pokemons.Remove(pokemon);
                 c.SaveChanges();
+     
                 return Ok(pokemon);
 
             }

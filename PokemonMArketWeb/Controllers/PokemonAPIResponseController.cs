@@ -43,13 +43,14 @@ namespace PokemonsMarketWeb.Controllers
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(upokemon), Encoding.UTF8, "application/json");
 
-                using (var response = await httpclient.PutAsync("https://localhost:7191/api/BlogsApi", content))
+                using (var response = await httpclient.PutAsync("https://localhost:7297/api/PokemonAPI/", content))
                 {
                     string apiresponse = await response.Content.ReadAsStringAsync();
                     pokemon = JsonConvert.DeserializeObject<Pokemon>(apiresponse);
                 }
             }
-            return pokemon;
+                return pokemon;
+
         }
 
 

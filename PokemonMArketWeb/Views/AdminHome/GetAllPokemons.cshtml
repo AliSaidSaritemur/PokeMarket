@@ -49,7 +49,7 @@
                        
                 <b class="center">  @Model[i].name</b>
                     <p class="center bg-success text-white rounded">  @Model[i].price ₺</p>
-                <p class="center"><a key=17 class="btn btn-danger" asp-action="DeletePokemonWithAPI" asp-route-fileName="@Model[i].id">Remove</a>&nbsp &nbsp <a key=18 class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@Model[i].id">Update</a></p>
+                <p class="center"><a key=17 class="btn btn-danger" asp-action="DeletePokemonWithAPI" asp-route-fileName="@Model[i].id">Remove</a>&nbsp &nbsp <a key=18 class="btn btn-success" asp-action="ApiUpdatePokemon" asp-route-fileName="@Model[i].id">Update</a></p>
                  
             </div>
             @if (i + 1 < Model.Count)
@@ -60,7 +60,7 @@
                       
                        <b class="center"> @Model[i+1].name</b>
                         <p class="center bg-success text-white rounded">  @Model[i+1].price ₺</p>
-                    <p class="center"><a key=17 class="btn btn-danger" asp-action="DeletePokemonWithAPI" asp-route-fileName="@Model[i+1].id">Remove</a>&nbsp &nbsp <a key=18 class="btn btn-success" asp-action="UpdatePokemon" asp-route-fileName="@Model[i+1].id">Update</a></p>
+                    <p class="center"><a key=17 class="btn btn-danger" asp-action="DeletePokemonWithAPI" asp-route-fileName="@Model[i+1].id">Remove</a>&nbsp &nbsp <a key=18 class="btn btn-success" asp-action="ApiUpdatePokemon" asp-route-fileName="@Model[i+1].id">Update</a></p>
 
                      
                     </div>

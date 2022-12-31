@@ -45,7 +45,7 @@ namespace PokemonsMarketWeb.Controllers
 
                 var claim = new List<Claim>
             {
-                new Claim(ClaimTypes.Name,user.mail),
+             
                   new Claim(ClaimTypes.Role, user.role),
                  new Claim(ClaimTypes.Role,"user"),
                 };
@@ -69,6 +69,7 @@ namespace PokemonsMarketWeb.Controllers
             {
                 Response.Cookies.Delete(cookie);
             }
+            Response.Cookies.Delete("id");
             return  RedirectToAction("Login", "Account");
         }
 

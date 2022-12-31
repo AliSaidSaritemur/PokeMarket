@@ -30,7 +30,7 @@ namespace PokemonMArketWeb.Controllers
                          where  "selling" == k.sellStatue && k.UserId != Int32.Parse(userId)
                          select new Pokemon() { id=k.id, age=k.age,name=k.name,power=k.power,UserId=k.UserId, price = k.price, species=k.species, sellStatue = k.sellStatue }).ToList();
 
-         
+            ViewBag.user = user;
             return View(query);
         }
 
@@ -84,7 +84,7 @@ namespace PokemonMArketWeb.Controllers
 
                 updatePokemon.sellStatue = "not selling";
                 c.SaveChanges();
-            return RedirectToAction("Profil", "Home");
+            return RedirectToAction("Market");
             }
 
             return RedirectToAction("Market");

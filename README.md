@@ -51,4 +51,4 @@ In Profile Admins can see Users which choosed and update their informations.
 <h3 align="center">Creators</h3>
 
 <h4 align="center">Ali Said SARITEMUR  </h4>               
-<h4 align="center">Metin GORGULU  </h4> 
+<h4 align="center">Metin GÖRGÜLÜ  </h4> 
